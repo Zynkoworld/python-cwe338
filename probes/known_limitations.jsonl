@@ -1,3 +1,4 @@
 {"_note": "NOT part of the verify.py gate. These are forms this decider cannot see; each is recorded with its current verdict so the gap is auditable rather than merely disclaimed.", "cwe": "CWE-338", "lang": "python"}
 {"code": "from random import *\nv = randint(1, 6)\n", "line": 2, "current_verdict": "SAFE", "reason": "wildcard import -- nincs nevesitett kotes", "cwe": "CWE-338", "lang": "python"}
 {"code": "import random\nOPS = {'r': random.randint}\nv = OPS['r'](1, 6)\n", "line": 3, "current_verdict": "SAFE", "reason": "dict-dispatch", "cwe": "CWE-338", "lang": "python"}
+{"code": "import importlib\nv = importlib.import_module('random').randint(1, 6)\n", "line": 2, "current_verdict": "SAFE", "reason": "a MODUL szerzese dinamikus (importlib.import_module)", "cwe": "CWE-338", "lang": "python"}
