@@ -8,3 +8,9 @@
 {"code": "import random\nsysrand = random.SystemRandom()\nv = sysrand.randint(0, 10)\n", "line": 3, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python"}
 {"code": "import secrets\nk = secrets.choice(chars)\n", "line": 2, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python"}
 {"code": "import random\nsr = random.SystemRandom()\nn = sr.getrandbits(64)\n", "line": 3, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python"}
+{"code": "from random import randint as ri\nv = ri(1, 6)\n", "line": 2, "expected_verdict": "FLAG", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19219 review: binding vs name)"}
+{"code": "import random as rnd\nv = rnd.choice(pool)\n", "line": 2, "expected_verdict": "FLAG", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19219 review: binding vs name)"}
+{"code": "import random\nf = random.getrandbits\nv = f(32)\n", "line": 3, "expected_verdict": "FLAG", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19219 review: binding vs name)"}
+{"code": "def random():\n    return 4\nv = random()\n", "line": 3, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19219 review: binding vs name)"}
+{"code": "class Deck:\n    def shuffle(self):\n        return self\nd = Deck()\nd.shuffle()\n", "line": 5, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19219 review: binding vs name)"}
+{"code": "from secrets import choice as pick\nv = pick(chars)\n", "line": 2, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19219 review: binding vs name)"}
