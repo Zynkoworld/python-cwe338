@@ -81,7 +81,12 @@ def _origin(call, binds, local):
 
 
 def _const_strs(tree):
-    """modul-szintu `NEV = "literal"` / `NEV = b"literal"` konstansok (konstans-propagacio)."""
+    """Egyszeru `NEV = <string/bytes literal>` ertekadasok BARHOL a fajlban.
+
+    FONTOS es szandekosan kimondva: ez NEM scope-erzekeny -- egy fuggvenyen BELULI ertekadas is
+    bekerul, es igy egy masik fuggvenyben szereplo AZONOS NEVU valtozora is ervenyesnek latszik.
+    Ez tudatos TUL-KOZELITES a rejtett literal fele; az arat a known_limitations.jsonl rogziti.
+    """
     out = {}
     for n in ast.walk(tree):
         if isinstance(n, ast.Assign) and isinstance(n.value, ast.Constant) \
