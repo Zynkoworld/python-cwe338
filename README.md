@@ -6,14 +6,14 @@ An **oracle** *deterministically decides* the truth of a case — it doesn't gue
 for a given piece of Python code and a line number, whether that line constitutes **cryptographically weak PRNG** (CWE-338).
 
 ## Proven
-Measured on a **discriminating** probe corpus of **16 cases (8 flagged + 8 safe)** — verified by
+Measured on a **discriminating** probe corpus of **19 cases (9 flagged + 10 safe)** — verified by
 running the oracle, not asserted:
 
 ```
 recall = 1.000    false_positives = 0    non-degenerate = yes  ->  PASS
 ```
 
-These numbers hold **on the published probe set (N=16)**. A probe set is a floor, not a
+These numbers hold **on the published probe set (N=19)**. A probe set is a floor, not a
 coverage measure — see *Known limitations* below.
 
 `verify.py` (stdlib only, no network) is the CI gate.

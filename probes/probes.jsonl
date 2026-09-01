@@ -14,3 +14,6 @@
 {"code": "def random():\n    return 4\nv = random()\n", "line": 3, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19219 review: binding vs name)"}
 {"code": "class Deck:\n    def shuffle(self):\n        return self\nd = Deck()\nd.shuffle()\n", "line": 5, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19219 review: binding vs name)"}
 {"code": "from secrets import choice as pick\nv = pick(chars)\n", "line": 2, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19219 review: binding vs name)"}
+{"code": "import random\nn = 'randint'\nv = getattr(random, n)(1, 6)\n", "line": 3, "expected_verdict": "FLAG", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19249: getattr constant-bound name)"}
+{"code": "import random\nn = choose()\nv = getattr(random, n)(1, 6)\n", "line": 3, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (zafire #19249: getattr constant-bound name)"}
+{"code": "def getattr(a, b):\n    return len\nimport random\nn = 'randint'\nv = getattr(random, n)(1, 6)\n", "line": 5, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python", "origin": "adversarial (self cross-check: locally shadowed getattr)"}
