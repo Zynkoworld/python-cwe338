@@ -1,0 +1,10 @@
+{"code": "import random\ntoken = random.randint(0, 999999)\n", "line": 2, "expected_verdict": "FLAG", "cwe": "CWE-338", "lang": "python"}
+{"code": "import random\nk = random.choice(chars)\n", "line": 2, "expected_verdict": "FLAG", "cwe": "CWE-338", "lang": "python"}
+{"code": "import random\nn = random.getrandbits(32)\n", "line": 2, "expected_verdict": "FLAG", "cwe": "CWE-338", "lang": "python"}
+{"code": "from random import randrange\nv = randrange(100)\n", "line": 2, "expected_verdict": "FLAG", "cwe": "CWE-338", "lang": "python"}
+{"code": "import random\ns = random.sample(pool, 4)\n", "line": 2, "expected_verdict": "FLAG", "cwe": "CWE-338", "lang": "python"}
+{"code": "import secrets\ntoken = secrets.token_hex(16)\n", "line": 2, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python"}
+{"code": "import os\nb = os.urandom(16)\n", "line": 2, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python"}
+{"code": "import random\nsysrand = random.SystemRandom()\nv = sysrand.randint(0, 10)\n", "line": 3, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python"}
+{"code": "import secrets\nk = secrets.choice(chars)\n", "line": 2, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python"}
+{"code": "import random\nsr = random.SystemRandom()\nn = sr.getrandbits(64)\n", "line": 3, "expected_verdict": "SAFE", "cwe": "CWE-338", "lang": "python"}
