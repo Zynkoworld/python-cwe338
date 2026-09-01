@@ -2,3 +2,4 @@
 {"code": "from random import *\nv = randint(1, 6)\n", "line": 2, "current_verdict": "SAFE", "reason": "wildcard import -- nincs nevesitett kotes", "cwe": "CWE-338", "lang": "python"}
 {"code": "import random\nOPS = {'r': random.randint}\nv = OPS['r'](1, 6)\n", "line": 3, "current_verdict": "SAFE", "reason": "dict-dispatch", "cwe": "CWE-338", "lang": "python"}
 {"code": "import importlib\nv = importlib.import_module('random').randint(1, 6)\n", "line": 2, "current_verdict": "SAFE", "reason": "a MODUL szerzese dinamikus (importlib.import_module)", "cwe": "CWE-338", "lang": "python"}
+{"code": "import random\nn = 'rand%s' % 'int'\nv = getattr(random, n)(1, 6)\n", "line": 3, "current_verdict": "SAFE", "reason": "%-formazassal szarmaztatott nev -- a deklaralt kihajtas-hatokoron kivul", "cwe": "CWE-338", "lang": "python"}
